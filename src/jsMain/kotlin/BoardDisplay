@@ -1,0 +1,14 @@
+import csstype.ClassName
+import react.*
+import react.dom.html.ReactHTML.button
+import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.p
+import react.dom.html.ReactHTML.table
+import react.dom.html.ReactHTML.tbody
+import react.dom.html.ReactHTML.td
+import react.dom.html.ReactHTML.tr
+
+external interface BoardDisplayProps : Props {
+    var clickSquareFun: (Int, Int, ClickType) -> Unit
+    var gameProp: Game
+}

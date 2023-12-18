@@ -1,0 +1,177 @@
+
+div#container {
+    width:60%;
+    margin:0 auto;
+}
+
+div#board {
+    width:70%;
+    float: left;
+}
+
+div#history {
+    width:30%;
+    float: right;
+}
+
+table {
+    border-spacing: 0;
+}
+
+div#board table {
+    width: 90%;
+
+    margin: 0 auto;
+}
+
+div#board table td {
+    width:10%;
+
+    position: relative;
+    text-align:center;
+    padding:0;
+    margin:0;
+}
+
+div#board table td.white .content {
+    background-color: #ffce9e;
+}
+
+div#board table td.black .content {
+    background-color: #d18b47;
+}
+
+div#board table td.border .content {
+    background-color:black;
+    color:white;
+}
+
+div#board table td .content {
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    line-height:100%;
+    position:relative;
+}
+
+div#board table td  .piece {
+    display:block;
+    width:100%;
+    aspect-ratio: 1 / 1;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: auto;
+}
+
+div#board table td .content.selected {
+    background-color: lightgreen;
+}
+
+div#board table td .content.moveOption {
+    background-color: lightcoral;
+}
+
+
+div#board table td .piece.whitepawn {
+    background-image:url("whitepawn.svg");
+}
+
+div#board table td .piece.whiteknight {
+    background-image:url("whiteknight.svg");
+}
+
+div#board table td .piece.whitebishop {
+    background-image:url("whitebishop.svg");
+}
+
+div#board table td .piece.whiterook {
+    background-image:url("whiterook.svg");
+}
+
+div#board table td .piece.whitequeen {
+    background-image:url("whitequeen.svg");
+}
+
+div#board table td .piece.whiteking {
+    background-image:url("whiteking.svg");
+}
+
+div#board table td .piece.blackpawn {
+    background-image:url("blackpawn.svg");
+}
+
+div#board table td .piece.blackknight {
+    background-image:url("blackknight.svg");
+}
+
+div#board table td .piece.blackbishop {
+    background-image:url("blackbishop.svg");
+}
+
+div#board table td .piece.blackrook {
+    background-image:url("blackrook.svg");
+}
+
+div#board table td .piece.blackqueen {
+    background-image:url("blackqueen.svg");
+}
+
+div#board table td .piece.blackking {
+    background-image:url("blackking.svg");
+}
+
+
+div#history table {
+    padding:0;
+    margin:0;
+    border:0;
+    width:100%;
+}
+
+div#history table td {
+    width:50%;
+    padding:0;
+    margin:0;
+}
+
+div#history table td .content {
+    width: 100%;
+    padding:10px;
+    display:block;
+    min-height:20px;
+    vertical-align:center;
+}
+
+
+div#history table tr:nth-child(odd) td:nth-child(1) .content {
+    background-color: lightgrey;
+}
+div#history table tr:nth-child(odd) td:nth-child(2) .content {
+    background-color: darkgrey;
+}
+div#history table tr:nth-child(even) td:nth-child(1) .content {
+    background-color: darkgrey;
+}
+div#history table tr:nth-child(even) td:nth-child(2) .content {
+    background-color: lightgrey;
+}
+
+div#board table td .promotionPicker {
+    z-index: 1;
+    position: absolute;
+    left: -200%;
+    bottom: 50%;
+    height:100%;
+    width:400%;
+    border-radius:5px;
+    border:2px solid darkgrey;
+    box-shadow: 5px 5px 5px lightgrey;
+    background-color: whitesmoke;
+}
+
+div#board table td .promotionPicker .piece.floating {
+    float:left;
+    height:100%;
+    width:25%;
+}
+
+
