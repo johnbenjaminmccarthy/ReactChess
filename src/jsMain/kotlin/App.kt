@@ -2,10 +2,12 @@ import dom.html.HTMLButtonElement
 import kotlinx.browser.window
 import react.*
 import react.dom.html.ButtonHTMLAttributes
+import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.br
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.h2
+import react.dom.html.ReactHTML.p
 
 enum class Colour {
     WHITE, BLACK
@@ -18,14 +20,20 @@ enum class Piece {
 }
 
 enum class GameState {
-    NORMAL, CHECK, CHECKMATE, DRAW, STALEMATE
+    NORMAL, CHECK, CHECKMATE, DRAW, STALEMATE;
+
+    override fun toString(): String = when (this) {
+        NORMAL -> "Normal"
+        CHECK -> "Check"
+        CHECKMATE -> "Checkmate"
+        DRAW -> "Draw"
+        STALEMATE -> "Stalemate"
+    }
 }
 
 
 val App = FC<Props> {
-    h1 {
-        +"ReactChess"
-    }
+
 
 
     var boardState by useState(BoardState())
@@ -102,21 +110,37 @@ val App = FC<Props> {
     div {
         id = "container"
 
-        +"board frozen: $boardFrozen"
-
-        BoardDisplay {
-            clickFun = ::squareClickFun
-            board = boardState
-            moves = possibleMoves
-            selected = selectedSquare
-            promotions = promotionList
+        h1 {
+            +"ReactChess"
         }
 
-        HistoryDisplay {
-            clickFun = ::historyClickFun
-            history = historyState
-            newGameFun = ::newGame
+        p {
+            +"ReactChess is a chess implementation in React and Kotlin/JS. The source code can be accessed at "
+            a {
+                href = "https://github.com/Tazerenix/ReactChess"
+                +"https://github.com/Tazerenix/ReactChess"
+            }
+            +"."
         }
+
+        div {
+            id="boardcontainer"
+            BoardDisplay {
+                clickFun = ::squareClickFun
+                board = boardState
+                moves = possibleMoves
+                selected = selectedSquare
+                promotions = promotionList
+                newGameFun = ::newGame
+            }
+
+            HistoryDisplay {
+                clickFun = ::historyClickFun
+                history = historyState
+
+            }
+        }
+
     }
 }
 

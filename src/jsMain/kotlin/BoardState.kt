@@ -518,7 +518,7 @@ data class BoardState(
 
 
 
-        if (occupiedByEnemy(move.to)) {
+        if (occupiedByEnemy(move.to) || move.enPassantCapture) {
             str = "x" + str
             if (fromPiece == WHITEPAWN || fromPiece == BLACKPAWN) {
                 str = move.from.fileChar() + str

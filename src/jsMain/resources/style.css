@@ -1,22 +1,53 @@
+body {
+    font-family: "Source Sans Pro";
+    background-color: #252a34;
+    color:#f5f5f5;
+    width:100%;
+}
+
+
+a:link, a:visited, a:hover, a:active {  color: inherit; }
+
+a {
+    text-decoration: underline #f5f5f5 dotted 2px;
+}
+
+a:hover {
+    color:#aaaaaa;
+    text-decoration-color:#aaaaaa;
+}
+
+
 
 div#container {
     width:60%;
     margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-content:center;
+}
+
+div#boardcontainer {
+    margin-top:15px;
+    display:flex;
+    width:100%;
+    flex-direction:row;
 }
 
 div#board {
     width:70%;
-    float: left;
 }
 
 div#history {
     width:30%;
-    float: right;
 }
 
 table {
     border-spacing: 0;
 }
+
 
 div#board table {
     width: 90%;
@@ -24,13 +55,22 @@ div#board table {
     margin: 0 auto;
 }
 
+div#board table tr {
+    height:100%;
+}
+
 div#board table td {
-    width:10%;
+
+    height:100%;
 
     position: relative;
     text-align:center;
     padding:0;
     margin:0;
+}
+
+div#board table td.white, div#board table td.black {
+    width:12%;
 }
 
 div#board table td.white .content {
@@ -41,17 +81,33 @@ div#board table td.black .content {
     background-color: #d18b47;
 }
 
-div#board table td.border .content {
-    background-color:black;
-    color:white;
-}
 
-div#board table td .content {
+
+div#board table td.white .content, div#board table td.black .content {
     aspect-ratio: 1 / 1;
     text-align: center;
     line-height:100%;
     position:relative;
 }
+
+div#board table td.border.left, div#board table td.border.right {
+    width:2%;
+}
+
+div#board table td.border.top, div#board table td.border.bottom {
+    height:2%;
+}
+
+div#board table td.border .content {
+    background-color:black;
+    color:white;
+    height:100%;
+    display:grid;
+    align-items:center;
+}
+
+
+
 
 div#board table td  .piece {
     display:block;
@@ -123,18 +179,20 @@ div#board table td .piece.blackking {
 div#history table {
     padding:0;
     margin:0;
-    border:0;
     width:100%;
 }
 
-div#history table td {
+div#history table td, div#history table th {
     width:50%;
     padding:0;
     margin:0;
 }
 
-div#history table td .content {
-    width: 100%;
+div#history table th {
+    border-bottom:1px solid whitesmoke;
+}
+
+div#history table td .content, div#history table th .content {
     padding:10px;
     display:block;
     min-height:20px;
@@ -143,16 +201,60 @@ div#history table td .content {
 
 
 div#history table tr:nth-child(odd) td:nth-child(1) .content {
-    background-color: lightgrey;
+    background-color: #343b49;
 }
 div#history table tr:nth-child(odd) td:nth-child(2) .content {
-    background-color: darkgrey;
+    background-color: #181b21;
 }
 div#history table tr:nth-child(even) td:nth-child(1) .content {
-    background-color: darkgrey;
+    background-color: #181b21;
 }
 div#history table tr:nth-child(even) td:nth-child(2) .content {
-    background-color: lightgrey;
+    background-color: #343b49;
+}
+
+div#board button.newgame {
+    margin-left:5%;
+    padding:10px;
+    border:2px solid black;
+    border-top:none;
+    background-color:#343b49;
+    border-radius:3px;
+    color:#f5f5f5;
+    cursor:pointer;
+    font-size:inherit;
+}
+
+div#board button.newgame:hover {
+    background-color:#181b21;
+}
+
+div#state {
+    width:40%;
+    margin-right:5%;
+    float:right;
+    background-color:#181b21;
+    border:2px solid black;
+    border-top:none;
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+}
+
+div#state #gamestate {
+    width:40%;
+    padding:10px;
+}
+
+div#state #turnnumber {
+    width:25%;
+    background-color:#343b49;
+    padding:10px;
+}
+
+div#state #turn {
+    width:35%;
+    padding:10px;
 }
 
 div#board table td .promotionPicker {
@@ -164,7 +266,7 @@ div#board table td .promotionPicker {
     width:400%;
     border-radius:5px;
     border:2px solid darkgrey;
-    box-shadow: 5px 5px 5px lightgrey;
+    box-shadow: 5px 5px 5px #181b21;
     background-color: whitesmoke;
 }
 
@@ -173,5 +275,7 @@ div#board table td .promotionPicker .piece.floating {
     height:100%;
     width:25%;
 }
+
+
 
 
